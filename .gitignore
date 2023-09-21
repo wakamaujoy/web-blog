@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 .DS_Store
 node_modules
 =======
+=======
+>>>>>>> 4803323c0a7226e3c09ffbf3f83866ceb29320ae
 # Logs
 logs
 *.log
@@ -132,4 +135,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+<<<<<<< HEAD
+>>>>>>> 4803323c0a7226e3c09ffbf3f83866ceb29320ae
+=======
 >>>>>>> 4803323c0a7226e3c09ffbf3f83866ceb29320ae
