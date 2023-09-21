@@ -1,0 +1,15 @@
+<%- include("partials/header") -%>
+<div class="newsletter trends">
+    <div class="content">
+    <h5>Top Tech News</h5>
+    <%trends.forEach((item)=>{%>
+        <ul>
+            <li><a href=<%=item.url%>> <%=item.title%> </a></li>
+        </ul>
+    
+             
+    <%})%>
+
+  </div>
+</div>
+<%- include("partials/footer") -%>

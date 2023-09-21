@@ -1,0 +1,27 @@
+<%- include("partials/header") -%>
+<section class="compose-section">
+    <div class="jumbotron jumbotron-sm">
+            <div class="row">
+                <div class="col">
+                    <h3><strong><em>What's Happening???</em></strong> </h3>
+
+                </div>
+            </div>
+    </div>
+
+    <div class="compose">
+        <form action="/compose" method="post">
+            <label for="blogtitle">TITLE</label><br>
+            <input type="text" name="newBlog" id="blogtitle" class="form-control" autocomplete="off"><br><br>
+
+            <label for="blogtext">POST</label><br>
+            <textarea name="newText" id="blogtext" cols="30" rows="10" class="form-control"></textarea><br>
+            
+            <button type="submit" class="allbtn">publish</button>
+        </form>
+
+    </div>
+</section>
+
+
+<%- include("partials/footer") -%>
