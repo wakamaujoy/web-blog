@@ -3,4 +3,19 @@
 <h1><%=title%></h1>
 <p><%=body%></p>
 </div>
+
+<div class="newsletter content trends">
+    <h2>Top Tech News</h2>
+    <%for(i=0; i<trends.length; i++){%>
+        <ul>
+            <li><a href=<%=trends[i].url%>> <%=trends[i].title%> </a></li>
+        </ul> 
+
+    <%}%>
+    
+   
+  </div>
+
+<%- include("partials/other") -%>
+
 <%- include("partials/footer") -%>
