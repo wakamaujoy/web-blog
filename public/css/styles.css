@@ -38,12 +38,6 @@ body{
    
   }
 
-.carousel-item .card-body img {
-
-
-
-}
-  
 .carousel-item img {
     position: absolute;
     object-fit: cover;
@@ -174,8 +168,6 @@ border-radius:0;
 background: #A2678A;
 color: #fff;
 margin: 3px;
-
-
 }
 
 /* contact */
@@ -235,10 +227,7 @@ color: #FFF;
         position: relative; 
         top: 30px;
         left: 75px;
-        bottom:0px;
-      
-      
-        
+        bottom:0px;        
     }
     
     .announcement{      
@@ -246,10 +235,7 @@ color: #FFF;
         position: relative;
         top: 0;
         padding: 0;
-        right: 190px;
-        
-
-       
+        right: 190px;       
     } 
     .adbtn{
         font-size: 10px;
@@ -262,11 +248,7 @@ color: #FFF;
         left: 390px;
         bottom: 150px;
         padding: 3%;
-    }
-
-
-  
-  
+    }  
 }
 @media screen and (max-width:1030px){
     .posts{

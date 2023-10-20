@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const { includes, each } = require("lodash");
-const trendNews = require(__dirname+"/f.js")
+// const trendNews = require(__dirname+"/f.js")
 const _ = require('lodash');
 const mongoose = require("mongoose");
 // const getTrends = require("./f");
@@ -26,41 +26,26 @@ const blogSchema =new mongoose.Schema({
 const BlogPost = mongoose.model("post", blogSchema)
 
 
-app.get("/", (req, res)=>{ 
-  BlogPost.find({}, (err, respo)=>{
-    if(!err){
-      res.render("home", {posts:respo})
-    }  
-}) 
-})
+app.get("/", async(req, res)=>{ 
+  try{
+    const respo= await BlogPost.find({})
+    res.render("home", {posts:respo})
 
-app.get("/posts/:mypath", (req, res)=>{   
-var url = 'https://newsapi.org/v2/everything?' +
-'q=technology&'+    
-'sortBy=popularity&' +
-'apiKey=744dc8784e464a7b8bdaddacf216f944';
-let nowpath =req.params.mypath
-BlogPost.findOne({title:nowpath}, (err, answer)=>{
-  if(!err){
-    const getTrends=  async function() {
-      const resp = await fetch(url)
-      if (resp.ok) {
-        const data = await resp.json()
-        const mydata= data.articles.slice(0,5)
-        res.render("post", {title: answer.title, body:answer.post, trends:mydata})
-      }
-      }
-    
-    getTrends()
+  }catch(err){
+    console.log(err);
+
   }
-  })
-})
+}) 
 
 
-// app.get("/about", (req, res)=>{
-//   res.render("about")
-
-// })
+app.get("/posts/:mypath", async(req, res)=>{   
+    try{
+      const thePost = await BlogPost.findOne({title:req.params.mypath})    
+      res.render("post", {title: thePost.title, body:thePost.post})
+      }catch(err){
+        console.log(err);
+      }
+    })
 
 app.get("/contact", (req, res)=>{
   res.render("contact")
