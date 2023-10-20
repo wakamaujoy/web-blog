@@ -4,6 +4,7 @@ body{
 }
 
 /* classes */
+
 .toprow{
     padding-left : 1.5%;
     padding-right: 1.5%;
@@ -81,7 +82,7 @@ body{
 }
 
 .navbar-brand{
-    margin-left: 20px;
+    margin-left: 10px;
     margin-bottom: 0;
     font-family: 'Handlee', cursive;
     padding-bottom: 0;

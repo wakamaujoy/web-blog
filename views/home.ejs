@@ -1,57 +1,57 @@
 <%- include("partials/header") -%>
-    <div class="row toprow">
-        <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active" data-bs-interval="100">
-                    <div class="col-md-3">
+<div class="row">
+    <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active" data-bs-interval="100">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <img style="height: 350px;" src="https://img.freepik.com/free-photo/top-view-white-daisies_23-2148183900.jpg?w=740&t=st=1697681881~exp=1697682481~hmac=49f146e3e1583515abec918ecc7d716bb3bbad645096706d32d348b3996cba4f">
+                            <h5 style="text-align: center; font-size:xx-large;" class="card-title"><strong><em>*----Editor's Pick----*</em></strong></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <%posts.forEach((post)=>{%>
+                <%let hsc = post.title%>
+                <%let hsc2= post.post.substring(0,100) +"...."%> 
+                <%let hsc3= post.date%>
+                <%let hsc4= post.image%>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <div class="col-md-3">                    
                         <div class="card">
-                            <div class="card-body">
-                                <img style="height: 350px;" src="https://img.freepik.com/free-photo/top-view-white-daisies_23-2148183900.jpg?w=740&t=st=1697681881~exp=1697682481~hmac=49f146e3e1583515abec918ecc7d716bb3bbad645096706d32d348b3996cba4f">
-                                <h5 style="text-align: center; font-size:xx-large;" class="card-title"><strong><em>*----Editor's Pick----*</em></strong></h5>
+                            <div class="card-body xyx">    
+                                <img src=<%=hsc4%>> 
+                                <div class="hide">                
+                                <h5 class="card-title"><strong><%=hsc%></strong></h5>
+                                <p class="card-text"><%=hsc2%><a href="/posts/<%=post.title%>">Read More</a></p>   
+                                </div>
+                                        
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <%posts.forEach((post)=>{%>
-                    <%let hsc = post.title%>
-                    <%let hsc2= post.post.substring(0,100) +"...."%> 
-                    <%let hsc3= post.date%>
-                    <%let hsc4= post.image%>
-                    <div class="carousel-item" data-bs-interval="2000">
-                        <div class="col-md-3">                    
-                            <div class="card">
-                                <div class="card-body xyx">    
-                                    <img src=<%=hsc4%>> 
-                                    <div class="hide">                
-                                    <h5 class="card-title"><strong><%=hsc%></strong></h5>
-                                    <p class="card-text"><%=hsc2%><a href="/posts/<%=post.title%>">Read More</a></p>   
-                                    </div>
-                                            
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <%})%> 
-                    
-            </div>
+                <%})%> 
+                
         </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
-
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
 <div class="album py-5 px-3" >
     <div class="container-fluid">
     <div class="row px-5 py-3 ">
+        <h4 style="text-align: center; margin: 2;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labores</h4>
         <%posts.forEach((post)=>{%>
             <%let hsc = post.title%>
             <%let hsc2= post.post.substring(0,200) +"...."%> 
