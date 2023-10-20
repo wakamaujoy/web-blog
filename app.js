@@ -3,10 +3,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const { includes, each } = require("lodash");
-// const trendNews = require(__dirname+"/f.js")
 const _ = require('lodash');
 const mongoose = require("mongoose");
-// const getTrends = require("./f");
+
 
 
 const app = express();
