@@ -2,35 +2,61 @@ body{
     margin: 0;
     padding: 0;
 }
+
 /* classes */
+.toprow{
+    padding-left : 1.5%;
+    padding-right: 1.5%;
+}
 
+.hide{
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
 
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+}
+
+.xyx:hover .hide{
+    visibility: visible;
+    opacity: 1;
+}
 .contact-section{
     width: 75%;
     margin: 20px auto;
 }
-.carousel .carousel-item {
+.carousel-item .card-body {
     height: 500px;
-  }
-  
-  .carousel-item img {
-      position: absolute;
-      object-fit: cover;
-      top: 0;
-      left: 0;
-      min-height: 500px;
-  }
-.body{
-    width: 50%;
-    padding-top: 0;
-    margin: 20px auto;
+    width: 350px;
    
-      
+  }
+
+.carousel-item .card-body img {
+
+
+
 }
-.card{
-    width: 380px;
-    margin-bottom:4%;
+  
+.carousel-item img {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    height: 500px;
+    width: 100%;
 }
+
+.carousel-item .card-body .card-title{
+    margin-top: 360px;
+
+}
+
 .compose-section{
     width: 70%;
     margin: 20px auto;
@@ -55,13 +81,15 @@ body{
 }
 
 .navbar-brand{
-    margin-left: 120px;
+    margin-left: 20px;
+    margin-bottom: 0;
     font-family: 'Handlee', cursive;
     padding-bottom: 0;
 
 }
 .footer {
     position: fixed;
+    display: block;
 	text-align: center;
 	bottom: 0;
 	width: 100%;
@@ -71,7 +99,7 @@ body{
 .footer p {
 	margin-top: 10px;
 	font-size: 12px;
-  color: #fff;
+    color: #fff;
 }
 
 
@@ -165,88 +193,6 @@ margin: 3px;
 .jumbotron small {
 color: #FFF;
 }
-
-
-/* snipped about us */
-.datform{
-    margin: 0 30px;
-}
-.aboutus-section{ 
-    width: 75%;
-    margin: 20px auto;
-    text-align: center;
-}
-.aboutus-title {
-    font-size: 30px;
-    letter-spacing: 0;
-    line-height: 32px;
-    margin: 0 0 39px;
-    padding: 0 0 11px;
-    position: relative;
-    text-transform: uppercase;
-    color: #000;
-}
-.aboutus-title::after {
-    background: #fdb801 none repeat scroll 0 0;
-    bottom: 0;
-    content: "";
-    height: 2px;
-    left: 0;
-    position: absolute;
-    width: 54px;
-}
-.aboutus-text {
-    color: #606060;
-    font-size: 13px;
-    line-height: 22px;
-    margin: 0 0 35px;
-}
-
-
-.feature .feature-box .iconset {
-    background: #fff none repeat scroll 0 0;
-    float: left;
-    position: relative;
-    width: 18%;
-}
-.feature .feature-box .iconset::after {
-    background: #fdb801 none repeat scroll 0 0;
-    content: "";
-    height: 150%;
-    left: 43%;
-    position: absolute;
-    top: 100%;
-    width: 1px;
-}
-
-.feature .feature-box .feature-content h4 {
-    color: #0f0f0f;
-    font-size: 18px;
-    letter-spacing: 2;
-    line-height: 30px;
-    margin: 0 0 5px;
-}
-
-
-.feature .feature-box .feature-content {
-    float: left;
-    padding-left: 28px;
-    width: 78%;
-}
-.feature .feature-box .feature-content h4 {
-    color: #0f0f0f;
-    font-size: 18px;
-    letter-spacing: 0;
-    line-height: 22px;
-    margin: 0 0 5px;
-}
-.feature .feature-box .feature-content p {
-    color: #606060;
-    font-size: 13px;
-    line-height: 22px;
-}
-
-
 
 /* MEDIA QUERIES */
 
@@ -355,14 +301,42 @@ color: #FFF;
         margin:  5%;
         top: 40px;
         padding: 4%;
-        width: 50%;
-       
+        width: 50%;   
         
         
     }
-
-
-  
-  
+ 
 }
-   
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(25%);
+    }
+
+    .carousel-inner .carousel-item-start.active, 
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%);
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+    transform: translateX(0);
+}

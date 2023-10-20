@@ -10,9 +10,7 @@ const mongoose = require("mongoose");
 
 
 const app = express();
-
 app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname+"/public"));
 
@@ -42,20 +40,20 @@ var url = 'https://newsapi.org/v2/everything?' +
 'sortBy=popularity&' +
 'apiKey=744dc8784e464a7b8bdaddacf216f944';
 let nowpath =req.params.mypath
-  BlogPost.findOne({title:nowpath}, (err, answer)=>{
-    if(!err){
-      const getTrends=  async function() {
-        const resp = await fetch(url)
-        if (resp.ok) {
-          const data = await resp.json()
-          const mydata= data.articles.slice(0,5)
-          res.render("post", {title: answer.title, body:answer.post, trends:mydata})
-        }
-        }
-      
-      getTrends()
-    }
-    })
+BlogPost.findOne({title:nowpath}, (err, answer)=>{
+  if(!err){
+    const getTrends=  async function() {
+      const resp = await fetch(url)
+      if (resp.ok) {
+        const data = await resp.json()
+        const mydata= data.articles.slice(0,5)
+        res.render("post", {title: answer.title, body:answer.post, trends:mydata})
+      }
+      }
+    
+    getTrends()
+  }
+  })
 })
 
 
@@ -75,8 +73,8 @@ app.get("/compose", (req, res)=>{
 })
 
 app.post("/compose", (req, res)=>{
-  const newPost = new BlogPost({
-    title: req.body.newBlog,
+  const newPost =  new BlogPost({
+    title:req.body.newBlog,
     post: req.body.newText,
     date:req.body.newDate,
     image:req.body.newImage
