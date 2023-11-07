@@ -35,40 +35,79 @@ app.get("/", async(req, res)=>{
 
   }
 }) 
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!POSTS SECTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+app.route("/posts/:mypath")
+  .get(async(req, res)=>{   
+    
+      try{
+        nowpost = req.params.mypath
+        const thePost = await BlogPost.findOne({title:nowpost})    
+        res.render("post", {title: thePost.title, body:thePost.post})
+        }catch(err){
+          console.log(err);
+        }
+      })
 
-
-app.get("/posts/:mypath", async(req, res)=>{   
-    try{
-      const thePost = await BlogPost.findOne({title:req.params.mypath})    
-      res.render("post", {title: thePost.title, body:thePost.post})
-      }catch(err){
-        console.log(err);
-      }
-    })
-
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!CONTACT SECTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      
 app.get("/contact", (req, res)=>{
   res.render("contact")
 
 })
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SEARCH SECTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+app.get("/search/:key", async(req,res)=>{
+  let data= await BlogPost.find(
+    {
+      "$or":[
+        {title:{$regex:req.params.key}},
+        {post:{$regex:req.params.key}}
+      ]
+    })
+  res.render("searchResults", {posts:data})
+})
 
+app.post("/search", (req,res)=>{
+  res.redirect('/search/' + req.body.keyword)
+  
+})
+// / !!!!!!!!!!!!!!!!!!!!!!!!!!!!!COMPOSE SECTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 app.get("/compose", (req, res)=>{
   res.render("compose")
 
 })
 
-app.post("/compose", (req, res)=>{
+app.post("/compose",(req, res)=>{
   const newPost =  new BlogPost({
     title:req.body.newBlog,
     post: req.body.newText,
     date:req.body.newDate,
     image:req.body.newImage
   })
- 
   newPost.save()
-  res.redirect("/")
-  
+  res.redirect("/") 
 
 })
+
+app.patch("/compose/:mypath",async(req, res)=>{     
+  try{
+    nowpost = req.params.mypath
+    const thePost = await BlogPost.findOneAndUpdate({title:nowpost},{$set: req.body})    
+    thePost.save()
+    res.redirect("/")
+    }catch(err){
+      console.log(err);
+    }
+  })
+
+app.delete("/compose/:mypath",async(req, res)=>{     
+  try{
+    nowpost = req.params.mypath
+    const thePost2 = await BlogPost.deleteOne({title:nowpost})
+    res.redirect("/")
+    }catch(err){
+      console.log(err);
+    }
+  })
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");

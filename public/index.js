@@ -9,3 +9,9 @@ $(window).load(function() {
         i.children(":first-child").clone().appendTo($(this))
     })
 });
+
+
+function myFunc(){
+alert("kjhgf")
+
+}
