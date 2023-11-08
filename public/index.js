@@ -11,7 +11,3 @@ $(window).load(function() {
 });
 
 
-function myFunc(){
-alert("kjhgf")
-
-}

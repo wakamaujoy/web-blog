@@ -67,7 +67,8 @@ app.get("/search/:key", async(req,res)=>{
 })
 
 app.post("/search", (req,res)=>{
-  res.redirect('/search/' + req.body.keyword)
+  const key =_.toLower(req.body.keyword)
+  res.redirect('/search/' +key )
   
 })
 // / !!!!!!!!!!!!!!!!!!!!!!!!!!!!!COMPOSE SECTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

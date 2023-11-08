@@ -299,6 +299,9 @@ color: #FFF;
     .carousel-inner .carousel-item > div:first-child {
         display: block;
     }
+    .card-text{
+        font-size: smaller;
+    }
 }
 
 .carousel-inner .carousel-item.active,
