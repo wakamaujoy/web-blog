@@ -89,27 +89,27 @@ app.post("/compose",(req, res)=>{
 
 })
 
-app.patch("/compose/:mypath",async(req, res)=>{     
-  try{
-    nowpost = req.params.mypath
-    const thePost = await BlogPost.findOneAndUpdate({title:nowpost},{$set: req.body})    
-    thePost.save()
-    res.redirect("/")
-    }catch(err){
-      console.log(err);
-    }
-  })
+// app.patch("/compose/:mypath",async(req, res)=>{     
+//   try{
+//     nowpost = req.params.mypath
+//     const thePost = await BlogPost.findOneAndUpdate({title:nowpost},{$set: req.body})    
+//     thePost.save()
+//     res.redirect("/")
+//     }catch(err){
+//       console.log(err);
+//     }
+//   })
 
-app.delete("/compose/:mypath",async(req, res)=>{     
-  try{
-    nowpost = req.params.mypath
-    const thePost2 = await BlogPost.deleteOne({title:nowpost})
-    res.redirect("/")
-    }catch(err){
-      console.log(err);
-    }
-  })
+// app.delete("/compose/:mypath",async(req, res)=>{     
+//   try{
+//     nowpost = req.params.mypath
+//     const thePost2 = await BlogPost.deleteOne({title:nowpost})
+//     res.redirect("/")
+//     }catch(err){
+//       console.log(err);
+//     }
+//   })
 
-app.listen(3000, function() {
+app.listen(process.env.PORT||3000, function() {
   console.log("Server started on port 3000");
 })
