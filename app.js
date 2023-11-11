@@ -1,19 +1,26 @@
 //jshint esversion:6
+require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const { includes, each } = require("lodash");
 const _ = require('lodash');
 const mongoose = require("mongoose");
-
-
+mongoose.set("strictQuery", false);
 
 const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname+"/public"));
 
-mongoose.connect('mongodb://127.0.0.1:27017/blogdb')
+
+
+const  mongoDB ="mongodb+srv://wakamaujoy:"+ process.env.PASSWORD+"@cluster0.b5by5vg.mongodb.net/blogdb?retryWrites=true&w=majority"
+
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+}
 
 
 const blogSchema =new mongoose.Schema({
