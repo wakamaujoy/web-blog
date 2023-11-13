@@ -1,5 +1,4 @@
 //jshint esversion:6
-require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -15,7 +14,7 @@ app.use(express.static(__dirname+"/public"));
 
 
 
-const  mongoDB ="mongodb+srv://wakamaujoy:"+ process.env.PASSWORD+"@cluster0.b5by5vg.mongodb.net/blogdb?retryWrites=true&w=majority"
+const  mongoDB ="mongodb+srv://wakamaujoy:EDK9XbajYRZBaNSF@cluster0.b5by5vg.mongodb.net/blogdb?retryWrites=true&w=majority"
 
 main().catch((err) => console.log(err));
 async function main() {
