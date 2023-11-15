@@ -43,12 +43,10 @@ app.get("/", async(req, res)=>{
 }) 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!POSTS SECTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 app.route("/posts/:mypath")
-  .get(async(req, res)=>{   
-    
+  .get(async(req, res)=>{       
       try{
-        nowpost = req.params.mypath
-        const thePost = await BlogPost.findOne({title:nowpost})    
-        res.render("post", {title: thePost.title, body:thePost.post})
+        let thePost = await BlogPost.findOne({title:req.params.mypath})   
+        res.render("post", {posttitle: thePost.title, body:thePost.post})
         }catch(err){
           console.log(err);
         }
