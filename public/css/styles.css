@@ -100,120 +100,16 @@ body{
 }
 
 
-/* side divs */
-.announcement{
-    position:fixed;
-    top: 80px;
-    margin-left: 120px;
-    width: 10%;
-    
-}
-.ad{
-    border-radius: 50%;
-    height: 130px;
-    width: 130px;
-    padding: 2%;
-    border-radius: 50%;    
-    background-color: #E19898;    
-      
-}
-.allbtn{
-    background-color: #A2678A;
-    color: #fff;
-    margin-top: 15px;
-    border: none;
-    text-decoration: none;
-    font-size: 15px;
-    
-}
-
-.adbtn{
-    margin-left: 20px;
-    font-size: 12px;
-    padding: 2%;
-}
-.newsletter {
-    width: 20%;
-    background:rgb(235, 229, 229);
-    padding:  0 20px;
-    
-    }
-.trends{
-    position: absolute;
-    right: 20px;
-    top:70px;
-}
-.subscription{
-    position: fixed;
-    right: 20px;
-    bottom: 50px;
-    text-align: center;
-    font-size: 10px;
-
-}
-
-.newsletter .content { 
-text-align: center;
-font-size: 12px;
-margin-top: 2%;
-
-}
-
-
-.newsletter .content.form-control:focus {
-box-shadow: none;
-border: 2px solid chocolate;
-}
-.newsletter .content .btn {
-min-height: 50px; 
-border-radius:0;
-background: #A2678A;
-color: #fff;
-margin: 3px;
-}
-
-/* contact */
-/* snipped  contact page*/
-.jumbotron {
-    background: #E19898;
-    color: #FFF;
-    border-radius: 0px;
-    
-    }
-.jumbotron-sm {
-    margin: 50px auto 20px;
-    padding: 0;    
-    text-align: center;}
-    
-.jumbotron small {
-color: #FFF;
-}
 
 /* MEDIA QUERIES */
 
 @media screen and (max-width:1300px){
-    .newsletter.trends{
-        font-size: 11px;   
-        width:  320px;
-        position: fixed;    
-        
-    }
-    .newsletter.subscription{
-        font-size: 11px;
-        margin-right: 30px;
-    }
-    
-    .posts{
+       .posts{
         width: 60%;
         padding-top: 0;
         margin-left: 80px;   
 
     }
-    .announcement{
-        position: fixed;
-        right: 100px;
-        top: 380px;
-}
 }
 
 @media screen and (max-width:1180px){
@@ -221,77 +117,15 @@ color: #FFF;
         width: 75%;
         margin: 0 auto;
         position: relative;
-
-
     }
-    .newsletter.trends{ 
-        display: inline-block;   
-        position: relative; 
-        top: 30px;
-        left: 75px;
-        bottom:0px;        
     }
-    
-    .announcement{      
-        display: inline-block;   
-        position: relative;
-        top: 0;
-        padding: 0;
-        right: 190px;       
-    } 
-    .adbtn{
-        font-size: 10px;
-    }
-    
-    .newsletter.subscription{
-        position: relative;
-        display: inline-block;
-        margin: 0;
-        left: 390px;
-        bottom: 150px;
-        padding: 3%;
-    }  
-}
 @media screen and (max-width:1030px){
     .posts{
         width: 75%;
         margin: 0 auto;
         position: relative;
-
-
     }
-    .newsletter.trends{         
-        position: relative;   
-        left: 150px;
-        margin-top: 0px;
-        width: 60%;
-    }
-    
-    .announcement{               
-        position: relative; 
-        left: 210px;       
-        top:10px;
-        margin: 6%;
-        width: 50%;
-       
-    } 
-    .adbtn{
-        font-size: 11px;    
-        
-    }
-    
-    .newsletter.subscription{
-        position: relative;
-        left: 120px;
-        margin:  5%;
-        top: 40px;
-        padding: 4%;
-        width: 50%;   
-        
-        
-    }
- 
-}
+   }
 @media (max-width: 767px) {
     .carousel-inner .carousel-item > div {
         display: none;
