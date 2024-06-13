@@ -1,3 +1,3 @@
 # web-blog
 complete  blog webapp 
-https://bloggyapp32.onrender.com/
+https://web-blog-h4cr.onrender.com/
